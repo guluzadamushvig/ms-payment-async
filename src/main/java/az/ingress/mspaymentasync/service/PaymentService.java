@@ -8,6 +8,7 @@ import az.ingress.mspaymentasync.mapper.PaymentMapper;
 import az.ingress.mspaymentasync.model.PaymentRequest;
 import az.ingress.mspaymentasync.model.PaymentResponse;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +34,7 @@ public class PaymentService {
         return payments;
     }
 
+    @Transactional
     public void savePayment(PaymentRequest paymentRequest) {
         log.info("ActionLog.SavePayment.Started");
         paymentRepository.save(PaymentRequestToPaymentEntity(paymentRequest));
