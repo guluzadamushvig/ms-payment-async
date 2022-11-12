@@ -1,0 +1,10 @@
+server:
+  port: 8084
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/payments_async
+    username: postgres
+    password: ***
+  liquibase:
+    change-log: classpath:liguibase/changelog-master.yml
